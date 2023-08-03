@@ -8,7 +8,7 @@ enum ScanCodes {
 	SCANCODE_P = 0x19
 };
 
-bool getDistance(BYTE* lpPixels, int width, int height);
+bool getDistance(BYTE* pData, int width, int height);
 
 int main() {
 	InterceptionContext context;
