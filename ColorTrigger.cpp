@@ -77,16 +77,16 @@ int main() {
 }
 
 // Compare colors by using Euclidean Distance Formula
-bool getDistance(BYTE* lpPixels, int width, int height) {
+bool getDistance(BYTE* pData, int width, int height) {
 	BYTE r = 216, g = 42, b = 34;		// target color RGB (216, 42, 34)
 	double distance = 0;
 
 	for (int row = 0; row < height; row++) {
 		for (int column = 0; column < width; column++) {
 			int index = (row * width + column) * 4;
-			BYTE blue = lpPixels[index + 0];
-			BYTE green = lpPixels[index + 1];
-			BYTE red = lpPixels[index + 2];
+			BYTE blue = pData[index + 0];
+			BYTE green = pData[index + 1];
+			BYTE red = pData[index + 2];
 			
 			distance = sqrt(((red - r) * (red - r)) + ((green - g) * (green - g)) + ((blue - b) * (blue - b)));
 			//std::cout << "R: " << (int)red << " G: " << (int)green << " B: " << (int)blue << std::endl;
