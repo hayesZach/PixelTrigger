@@ -8,7 +8,7 @@ enum ScanCodes {
 	SCANCODE_P = 0x19
 };
 
-BOOL getDistance(BYTE* lpPixels, int width, int height);
+bool getDistance(BYTE* lpPixels, int width, int height);
 
 int main() {
 	InterceptionContext context;
@@ -48,9 +48,9 @@ int main() {
 	while (interception_receive(context, device = interception_wait(context), (InterceptionStroke*)&stroke, 1) > 0) {
 		// Capture screenshot when keybind is pressed
 		if (stroke.code == SCANCODE_SPACE) {
-			BOOL result = BitBlt(hMemDC, 0, 0, width, height, hDC, xCoord, yCoord, SRCCOPY);				// Copy contents of the screen to the memory device context
+			bool result = BitBlt(hMemDC, 0, 0, width, height, hDC, xCoord, yCoord, SRCCOPY);				// Copy contents of the screen to the memory device context
 			GetDIBits(hDC, hBitmap, 0, bmpInfo.bmiHeader.biHeight, pData, &bmpInfo, DIB_RGB_COLORS);		// Get the bitmap info, including it's dimensions and color format, and the pixel data
-			BOOL found = getDistance(pData, width, height);													// Use the Euclidean Distance Formula to check if pixel colors are close to our target pixel color
+			bool found = getDistance(pData, width, height);													// Use the Euclidean Distance Formula to check if pixel colors are close to our target pixel color
 			if (found) {
 				stroke.code = SCANCODE_P;																	// if color found, shoot
 				interception_send(context, device, (InterceptionStroke*)&stroke, 1);
