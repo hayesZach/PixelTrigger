@@ -91,8 +91,8 @@ bool getDistance(BYTE* lpPixels, int width, int height) {
 			distance = sqrt(((red - r) * (red - r)) + ((green - g) * (green - g)) + ((blue - b) * (blue - b)));
 			//std::cout << "R: " << (int)red << " G: " << (int)green << " B: " << (int)blue << std::endl;
 			//std::cout << "Distance: " << distance << std::endl;
-			if (distance < 120) return TRUE;	// distance from target color. The smaller the number, the closer the color must be to our target.
+			if (distance < 120) return true;	// distance from target color. The smaller the number, the closer the color must be to our target.
 		}
 	}
-	return FALSE;
+	return false;
 }
