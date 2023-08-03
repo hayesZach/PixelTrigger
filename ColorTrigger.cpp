@@ -77,7 +77,7 @@ int main() {
 }
 
 // Compare colors by using Euclidean Distance Formula
-BOOL getDistance(BYTE* lpPixels, int width, int height) {
+bool getDistance(BYTE* lpPixels, int width, int height) {
 	BYTE r = 216, g = 42, b = 34;		// target color RGB (216, 42, 34)
 	double distance = 0;
 
